@@ -2,7 +2,8 @@ import React from 'react'
 
 interface User{
     id: number,
-    name: string
+    name: string,
+    email: string
 }
 
 const UsersPage = async () => {
@@ -13,9 +14,23 @@ const UsersPage = async () => {
     <>
     <h1 className='text-3xl text-pink-800'>Users</h1>
     <p>{new Date().toLocaleTimeString()}</p>
-    <ol>
-        {users.map(user => <li key={user.id}>{user.name}</li>)}
-    </ol>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Names</th>
+                <th>Emails</th>
+            </tr>
+        </thead>
+        <tbody>
+            {users.map(user => <tr key={user.id}>
+                <td>{user.name}</td>
+                <td>{user.email}</td>
+                </tr>)}
+            
+        </tbody>
+        
+    </table>
 
     </>
   )
